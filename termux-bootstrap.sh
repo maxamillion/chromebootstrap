@@ -3,6 +3,9 @@
 apt update
 apt -y install vim-python python python2 ruby clang golang git htop fontconfig fontconfig-util tmux openssh proot strace ltrace tracepath nmap
 
+pip install virtualenv
+pip install ptpython
+
 termux-storage-setup
 
 cd ~/
