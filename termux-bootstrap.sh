@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 apt update
-apt -y install vim-python python python2 ruby clang golang git htop fontconfig tmux openssh proot
+apt -y install vim-python python python2 ruby clang golang git htop fontconfig fontconfig-util tmux openssh proot
 
 termux-storage-setup
 
@@ -51,3 +51,5 @@ fc-cache -vf ~/.fonts/
 mkdir -p ~/.config/fontconfig/conf.d/
 mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 popd
+
+rm -fr ${fontdir}
