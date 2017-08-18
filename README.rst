@@ -48,12 +48,19 @@ Install `Termux <https://termux.com/>`_ from the app store and then run the foll
     apt update
     apt upgrade
     apt install git
-    git clone https://github.com/maxamillion/chromeos.git
+    git clone https://github.com/maxamillion/chromebootstrap.git
 
-    bash chromeos/termux-bootstrap.sh
+    bash chromebootstrap/termux-bootstrap.sh
 
 Setup sshd in a chroot:
 
 ::
 
-    bash chromeos/
+    bash chromebootstrap/termux-setup-chroot.sh
+
+To run local sshd in a chroot:
+
+::
+
+    bash chromebootstrap/
+
