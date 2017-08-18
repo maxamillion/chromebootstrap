@@ -5,6 +5,6 @@ termux-chroot
 username=$(whoami)
 ipaddr=$(ifconfig arc0 | awk '/inet /{print $2}')
 
-printf "Login: ${username}@${ipaddr}"
+printf "Login: ${username}@${ipaddr}\n"
 
 sshd
