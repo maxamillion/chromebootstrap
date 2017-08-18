@@ -1,6 +1,6 @@
-========
-chromeos
-========
+===============
+chromebootstrap
+===============
 
 Bootstrap scripts and docs for setting up a ChromeOS device after first login
 from a PowerWash
@@ -50,4 +50,10 @@ Install `Termux <https://termux.com/>`_ from the app store and then run the foll
     apt install git
     git clone https://github.com/maxamillion/chromeos.git
 
-    sh chromeos/termux-bootstrap.sh
+    bash chromeos/termux-bootstrap.sh
+
+Setup sshd in a chroot:
+
+::
+
+    bash chromeos/
