@@ -50,7 +50,7 @@ Install `Termux <https://termux.com/>`_ from the app store and then run the foll
     apt install git
     git clone https://github.com/maxamillion/chromebootstrap.git
 
-    bash chromebootstrap/termux-bootstrap.sh
+    bash chromebootstrap/bootstrap-termux.sh
 
 Setup sshd in a chroot:
 
@@ -62,5 +62,5 @@ To run local sshd in a chroot:
 
 ::
 
-    bash chromebootstrap/
+    bash chromebootstrap/termux-run-chroot-sshd.sh
 

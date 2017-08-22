@@ -9,6 +9,10 @@ pip install httpie
 
 termux-storage-setup
 
+# Setup termux specific bashrc stuff (imported into ~/.bashrc by dotfiles)
+ln -s ~/chromebootstrap/bashrc_termux ~/.bashrc_termux
+
+# Setup my dotfiles
 cd ~/
 git clone https://github.com/maxamillion/dotfiles
 
@@ -23,10 +27,12 @@ rm -fr ~/.fonts
 rm -fr ~/.vim*
 rm -fr ~/vimified
 
+# bootstrap dotfiles
 bash ~/dotfiles/bootstrap.sh
 
 cd ~/
 
+# bootstrap vim
 bash ~/dotfiles/bootstrap-vim.sh
 
 cd ~/
