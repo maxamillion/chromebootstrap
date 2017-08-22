@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 apt update
-apt -y install vim-python python python2 ruby clang golang git htop fontconfig fontconfig-utils tmux openssh proot strace ltrace tracepath nmap
+apt -y install vim-python python python2 ruby clang golang git htop fontconfig fontconfig-utils tmux openssh mosh proot strace ltrace tracepath nmap
 
 pip install virtualenv
 pip install ptpython
