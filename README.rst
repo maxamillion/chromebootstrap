@@ -64,3 +64,17 @@ To run local sshd in a chroot:
 
     bash chromebootstrap/termux-run-chroot-sshd.sh
 
+Secure Shell
+------------
+
+Install the `Secure Shell
+<https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo>`_
+Chrome app.
+
+Configure `Secure Shell Powerline Fonts
+<https://github.com/wernight/powerline-web-fonts>`_.
+
+In the Secure Shell Options page, set the following:
+
+    font-family: ``"Hack", monospace``
+    user-css: ``https://cdn.rawgit.com/wernight/powerline-web-fonts/4c2fbd9a52a443fbdf00c9eb79e615f1bed3a55c/PowerlineFonts.css``
