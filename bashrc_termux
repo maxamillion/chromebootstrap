@@ -6,6 +6,6 @@ alias ll='ls -l --color=auto'
 # (Gaming precedent of functions over binaries in $PATH but it works, so meh)
 git(){
     . source-ssh-agent
-    /data/data/com.termux/files/usr/bin/git $@
+    /data/data/com.termux/files/usr/bin/git "$@"
 
 }
