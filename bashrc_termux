@@ -1,1 +1,11 @@
+
+# I live by this alias on Fedora/RHEL ... add it to Termux
 alias ll='ls -l --color=auto'
+
+# Handle Termux ssh-agent for git
+# (Gaming precedent of functions over binaries in $PATH but it works, so meh)
+git(){
+    . source-ssh-agent
+    /data/data/com.termux/files/usr/bin/git $@
+
+}
