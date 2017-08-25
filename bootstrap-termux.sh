@@ -1,13 +1,13 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 apt update
-apt -y install vim-python python python2 ruby clang golang git htop fontconfig fontconfig-utils tmux openssh mosh proot strace ltrace tracepath nmap termux-api
+apt -y install vim-python python python2 ruby clang golang git htop fontconfig fontconfig-utils tmux openssh mosh proot strace ltrace tracepath nmap termux-api termux-tools curl
 
 pip install virtualenv
 pip install ptpython
 pip install httpie
 
-termux-storage-setup
+termux-setup-storage
 
 # Setup termux specific bashrc stuff (imported into ~/.bashrc by dotfiles)
 ln -s ~/chromebootstrap/bashrc_termux ~/.bashrc_termux

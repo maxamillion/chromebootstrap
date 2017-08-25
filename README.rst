@@ -45,6 +45,10 @@ Install `Termux <https://termux.com/>`_ from the app store and then run the foll
 
 ::
 
+    termux-setup-storage
+
+    # Manage ssh keys (however you desire)
+
     apt update
     apt upgrade
     apt install git
