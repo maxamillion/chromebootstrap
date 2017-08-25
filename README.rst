@@ -56,17 +56,43 @@ Install `Termux <https://termux.com/>`_ from the app store and then run the foll
 
     bash chromebootstrap/bootstrap-termux.sh
 
-Setup sshd in a chroot:
+Setup sshd in a chroot (I haven't figured out how to script this, things get
+wonky when you run ``termux-chroot`` in a script):
 
 ::
 
-    bash chromebootstrap/termux-setup-chroot.sh
+    termux-chroot
 
-To run local sshd in a chroot:
+    mkdir -p /storage/emulated/0/Download/devbox/ssh
+    ln -s /storage/emulated/0/Download/devbox /home/devbox
+    ssh-keygen -t rsa -b 4096 -C "maxamillion@fedoraproject.org"
+
+
+Notes to pay attention to from the ``ssh-keygen`` prompt:
 
 ::
 
-    bash chromebootstrap/termux-run-chroot-sshd.sh
+    Enter file in which to save the key: /home/devbox/ssh/id_rsa
+
+
+Continue with the setup:
+
+::
+
+    cat /home/devbox/ssh/id_rsa.pub >> /home/.ssh/authorized_keys
+
+    echo "ssh: $(whoami)@$(ifconfig arc0 | awk '/inet /{print $2}')"
+
+The output from the above command is what you'll use to connect from the ssh
+client in the next section.
+
+
+Now go ahead and run sshd
+
+::
+
+    termux-chroot
+    sshd
 
 Secure Shell
 ------------
