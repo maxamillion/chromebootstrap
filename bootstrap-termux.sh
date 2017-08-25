@@ -6,6 +6,8 @@ apt -y install vim-python python python2 ruby clang golang git htop fontconfig f
 pip install virtualenv
 pip install ptpython
 pip install httpie
+pip install PyYAML
+pip install jinja2
 
 termux-setup-storage
 
