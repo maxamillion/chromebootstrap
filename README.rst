@@ -56,6 +56,18 @@ Install `Termux <https://termux.com/>`_ from the app store and then run the foll
 
     bash chromebootstrap/bootstrap-termux.sh
 
+
+Termux - local sshd in a chroot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+While Termux is fantastic, the Android App Support on ChromeOS still leaves
+a little to be desired. Such things like native copy/paste don't work and the
+font rendering is different. You can control fonts a little in the Android
+Settings app under Accessibility but it's just not as good as the font rendering
+for Chrome Apps. Therefore we setup this local sshd on the Chromebook for
+an over all better experience in the shell (the Chrome SSH client will even copy
+your tmux selections to the ChromeOS clipboard).
+
 Setup sshd in a chroot (I haven't figured out how to script this, things get
 wonky when you run ``termux-chroot`` in a script):
 
@@ -84,7 +96,8 @@ Continue with the setup:
     echo "ssh: $(whoami)@$(ifconfig arc0 | awk '/inet /{print $2}')"
 
 The output from the above command is what you'll use to connect from the ssh
-client in the next section.
+client in the next section (make sure to import the ssh key from
+``Downloads/devbox/ssh`` when the time comes).
 
 
 Now go ahead and run sshd
