@@ -9,3 +9,9 @@ git(){
     /data/data/com.termux/files/usr/bin/git "$@"
 
 }
+
+# Handle Termux ssh-agent management for mosh, similar gaming as git ... meh
+mosh(){
+    . source-ssh-agent
+    /data/data/com.termux/files/usr/bin/mosh "$@"
+}
