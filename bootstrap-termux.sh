@@ -1,15 +1,20 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 apt update
-apt -y install vim-python python python2 ruby clang golang git htop fontconfig fontconfig-utils tmux openssh mosh proot strace ltrace tracepath nmap termux-api termux-tools curl
+apt -y install bash-completion vim-python python python2 ruby clang golang git htop fontconfig fontconfig-utils tmux openssh mosh proot strace ltrace tracepath nmap termux-api termux-tools curl python2-dev python-dev libgmp libgmp-dev make libev-dev c-ares-dev libffi libffi-dev openssl openssl-dev openssl-tool
+
+termux-setup-storage
 
 pip install virtualenv
 pip install ptpython
 pip install httpie
 pip install PyYAML
 pip install jinja2
-
-termux-setup-storage
+CONFIG_SHELL=$PREFIX/bin/sh pip install pycrypto
+EMBED=0 pip install gevent
+pip install bcrypt
+pip install paramiko
+pip install ansible
 
 # Setup termux specific bashrc stuff (imported into ~/.bashrc by dotfiles)
 ln -s ~/chromebootstrap/bashrc_termux ~/.bashrc_termux
