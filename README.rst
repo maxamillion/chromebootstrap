@@ -36,7 +36,9 @@ and I'm not realistically going to be able to satisfy such concerns here.
 Apps
 ====
 
-I'll discuss various apps I use here.
+I'll discuss various apps I use here. Make sure to `enable Android App Support
+<https://support.google.com/chromebook/answer/7021273?hl=en>`_ on your
+Chromebook.
 
 Termux
 ------

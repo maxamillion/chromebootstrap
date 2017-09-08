@@ -8,13 +8,20 @@ termux-setup-storage
 pip install virtualenv
 pip install ptpython
 pip install httpie
-pip install PyYAML
-pip install jinja2
-CONFIG_SHELL=$PREFIX/bin/sh pip install pycrypto
-EMBED=0 pip install gevent
-pip install bcrypt
-pip install paramiko
-pip install ansible
+
+# Unfortunately, ChromeOS Android App support doesn't support sem_open which
+# means that ansible doesn't work from Termux
+#   https://github.com/termux/termux-packages/issues/570
+# Uncomment this stuff if/when that changes
+#pip install PyYAML
+#pip install jinja2
+#CONFIG_SHELL=$PREFIX/bin/sh pip install pycrypto
+#EMBED=0 pip install gevent
+#pip install bcrypt
+#pip install paramiko
+#pip install ansible
+
+gem install tmuxinator
 
 # Setup termux specific bashrc stuff (imported into ~/.bashrc by dotfiles)
 ln -s ~/chromebootstrap/bashrc_termux ~/.bashrc_termux
