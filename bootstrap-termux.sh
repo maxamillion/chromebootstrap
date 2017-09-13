@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 apt update
-apt -y install bash-completion vim-python python python2 ruby clang golang git htop fontconfig fontconfig-utils tmux openssh mosh proot strace ltrace tracepath nmap termux-api termux-tools curl python2-dev python-dev libgmp libgmp-dev make libev-dev c-ares-dev libffi libffi-dev openssl openssl-dev openssl-tool
+apt -y install bash-completion vim-python python python2 ruby clang golang git htop fontconfig fontconfig-utils tmux openssh mosh proot strace ltrace tracepath nmap termux-api termux-tools curl python2-dev python-dev libgmp libgmp-dev make libev-dev c-ares-dev libffi libffi-dev openssl openssl-dev openssl-tool man
 
 termux-setup-storage
 
