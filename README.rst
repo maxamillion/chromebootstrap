@@ -101,7 +101,6 @@ The output from the above command is what you'll use to connect from the ssh
 client in the next section (make sure to import the ssh key from
 ``Downloads/devbox/ssh`` when the time comes).
 
-
 Now go ahead and run sshd
 
 ::
@@ -123,3 +122,8 @@ In the Secure Shell Options page, set the following:
 
     font-family: ``"Hack", monospace``
     user-css: ``https://cdn.rawgit.com/wernight/powerline-web-fonts/4c2fbd9a52a443fbdf00c9eb79e615f1bed3a55c/PowerlineFonts.css``
+
+The output from the above command run inside Termux should have been something
+like ``u0_a54@100.115.92.2`` and this is what you will ssh into. However, do
+note that you will be connecting over port ``8022`` as this is what `sshd will
+default to in Termux <https://termux.com/ssh.html>`_.
