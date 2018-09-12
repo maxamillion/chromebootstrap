@@ -1,8 +1,8 @@
 #!/bin/bash
 
-apt update
-apt -y upgrade
-apt -y install \
+sudo apt update
+sudo apt -y upgrade
+sudo apt -y install \
     fontconfig \
     fontconfig-utils \
     htop \
