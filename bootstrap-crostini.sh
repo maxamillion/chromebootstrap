@@ -3,8 +3,6 @@
 sudo apt update
 sudo apt -y full-upgrade
 sudo apt -y install \
-    fontconfig \
-    fontconfig-utils \
     htop \
     tmux \
     vim \
