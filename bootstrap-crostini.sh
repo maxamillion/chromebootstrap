@@ -5,6 +5,7 @@ sudo apt -y full-upgrade
 sudo apt -y install \
     htop \
     tmux \
+    tmuxinator \
     vim \
     vim-syntastic \
     vim-python-jedi \
