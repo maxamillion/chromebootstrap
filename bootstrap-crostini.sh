@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt -y upgrade
+sudo apt -y full-upgrade
 sudo apt -y install \
     fontconfig \
     fontconfig-utils \
@@ -10,7 +10,6 @@ sudo apt -y install \
     vim \
     vim-syntastic \
     vim-python-jedi \
-    vim-python \
     python \
     python-tox \
     python-pip \
@@ -20,19 +19,20 @@ sudo apt -y install \
     bpython3 \
     ipython \
     ipython3 \
+    virtualenvwrapper \
     ruby \
     pry \
     golang \
-    openssh \
+    openssh-client \
     mosh \
     proot \
     strace \
     ltrace \
-    tracepath \
+    iputils-tracepath \
     nmap \
     curl \
     wget \
-    mkvirtualenv \
+    krb5-user \
     git
 
 pip install --user q
