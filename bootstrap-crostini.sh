@@ -51,6 +51,7 @@ rm -fr ~/.ptpython
 rm -fr ~/.fonts
 rm -fr ~/.vim*
 rm -fr ~/vimified
+rm -fr ~/.bashrc
 
 # bootstrap dotfiles
 bash ~/dotfiles/bootstrap.sh
