@@ -27,12 +27,13 @@ sudo apt -y install \
     proot \
     strace \
     ltrace \
-    iputils-tracepath \
     nmap \
     curl \
     wget \
     krb5-user \
     git \
+    man-db \
+    iputils-{arping,ping,tracepath} \
     virt-manager
 
 pip install --user q
