@@ -32,7 +32,8 @@ sudo apt -y install \
     curl \
     wget \
     krb5-user \
-    git
+    git \
+    virt-manager
 
 pip install --user q
 pip install --user pdbpp
