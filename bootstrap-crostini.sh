@@ -3,6 +3,7 @@
 sudo apt update
 sudo apt -y full-upgrade
 sudo apt -y install \
+    apt-file \
     htop \
     tmux \
     tmuxinator \
@@ -18,6 +19,11 @@ sudo apt -y install \
     bpython3 \
     ipython \
     ipython3 \
+    pyflakes \
+    pyflakes3 \
+    pylint \
+    pylint3 \
+    pep8 \
     virtualenvwrapper \
     ruby \
     pry \
