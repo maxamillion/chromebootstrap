@@ -45,6 +45,7 @@ sudo apt -y install \
 pip install --user q
 pip install --user pdbpp
 pip install --user ptpython
+pip install --user pipenv
 
 # Setup my dotfiles
 cd ~/
