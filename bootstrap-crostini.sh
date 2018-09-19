@@ -11,7 +11,6 @@ sudo apt -y install \
     vim-syntastic \
     vim-python-jedi \
     python \
-    python-tox \
     python-pip \
     python3 \
     python3-pip \
@@ -24,6 +23,7 @@ sudo apt -y install \
     pylint \
     pylint3 \
     pep8 \
+    tox \
     virtualenvwrapper \
     ruby \
     pry \
