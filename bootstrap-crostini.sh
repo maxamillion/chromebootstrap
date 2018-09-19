@@ -38,6 +38,7 @@ sudo apt -y install \
     wget \
     krb5-user \
     git \
+    tig \
     man-db \
     iputils-{arping,ping,tracepath} \
     virt-manager
