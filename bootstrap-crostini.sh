@@ -49,7 +49,7 @@ pip install --user pipenv
 
 # Setup docker, becuase $reasons
 # https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository
-sudo apt install \
+sudo apt -y install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -59,7 +59,7 @@ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo add-apt-repository \
     "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 sudo apt update
-sudo apt install docker-ce
+sudo apt -y install docker-ce
 
 # Setup my dotfiles
 cd ~/
