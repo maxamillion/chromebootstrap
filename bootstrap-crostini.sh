@@ -32,7 +32,6 @@ sudo apt -y install \
     mosh \
     proot \
     strace \
-    ltrace \
     nmap \
     curl \
     wget \
