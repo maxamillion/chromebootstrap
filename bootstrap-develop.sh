@@ -29,16 +29,31 @@ f_git_clone_with_upstream() {
     fi
 }
 
-
+# Upstream Forks
 f_git_clone_with_upstream \
     ~/src/dev/ansible \
     git@github.com:maxamillion/ansible.git \
     https://github.com/ansible/ansible.git
 
 f_git_clone_with_upstream \
+    ~/src/dev/ansible-runner \
+    git@github.com:maxamillion/ansible-runner.git \
+    https://github.com/ansible/ansible-runner.git
+
+f_git_clone_with_upstream \
     ~/src/dev/openshift-ansible \
     git@github.com:maxamillion/openshift-ansible.git \
     https://github.com/openshift/openshift-ansible.git
+
+f_git_clone_with_upstream \
+    ~/src/dev/dnf \
+    git@github.com:maxamillion/dnf.git \
+    https://github.com/rpm-software-management/dnf.git
+
+f_git_clone_with_upstream \
+    ~/src/dev/dnf \
+    git@github.com:maxamillion/dnf.git \
+    https://github.com/rpm-software-management/dnf.git
 
 f_git_clone_with_upstream \
     ~/src/dev/releng \
@@ -54,3 +69,6 @@ f_git_clone \
     ~/ansible/maxible \
     git@github.com:maxamillion/maxible.git
 
+
+# upstream code
+git clone git://yum.baseurl.org/yum.git ~/src/yum
