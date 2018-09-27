@@ -47,20 +47,48 @@ pip install --user pdbpp
 pip install --user ptpython
 pip install --user pipenv
 
+################################################################################
+# BEGIN DOCKER
+#
 # Setup docker, becuase $reasons
-# https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository
-sudo apt -y install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg2 \
-    btrfs-progs \
-    software-properties-common
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-sudo add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-sudo apt update
-sudo apt -y install docker-ce
+##
+## Once docker goes stable with the fixes in, switch to using the official repo
+## https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository
+#sudo apt -y install \
+#    apt-transport-https \
+#    ca-certificates \
+#    curl \
+#    gnupg2 \
+#    btrfs-progs \
+#    software-properties-common
+#curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+#sudo add-apt-repository \
+#    "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+#sudo apt update
+#sudo apt -y install docker-ce
+
+
+# For now we have to install from source
+sudo apt-get -y install golang libseccomp-dev
+export GOPATH=~/go
+go get github.com/opencontainers/runc
+pushd ~/go/src/github.com/opencontainers/runc
+
+    # fetch the unmerged PR with the fix
+    git remote add tmp https://github.com/AkihiroSuda/runc.git
+    git fetch tmp
+    git merge tmp/decompose-rootless-pr
+
+    # build & install!
+    make
+    sudo cp runc /usr/local/sbin/runc-chromeos
+    sudo chmod +x /usr/local/sbin/runc-chromeos
+    sudo service docker restart
+    docker run hello-world
+popd
+
+# END DOCKER
+################################################################################
 
 # Setup my dotfiles
 cd ~/
