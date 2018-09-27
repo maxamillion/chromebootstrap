@@ -54,6 +54,7 @@ sudo apt -y install \
     ca-certificates \
     curl \
     gnupg2 \
+    btrfs-progs \
     software-properties-common
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo add-apt-repository \
