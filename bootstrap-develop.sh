@@ -1,4 +1,6 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/bin/bash
+
+# termux shebang line /data/data/com.termux/files/usr/bin/bash
 
 # Small script to setup git repos I work in frequently
 
