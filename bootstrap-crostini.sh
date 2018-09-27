@@ -68,24 +68,27 @@ pip install --user pipenv
 #sudo apt -y install docker-ce
 
 
-# For now we have to install from source
-sudo apt-get -y install golang libseccomp-dev
-export GOPATH=~/go
-go get github.com/opencontainers/runc
-pushd ~/go/src/github.com/opencontainers/runc
-
-    # fetch the unmerged PR with the fix
-    git remote add tmp https://github.com/AkihiroSuda/runc.git
-    git fetch tmp
-    git merge tmp/decompose-rootless-pr
-
-    # build & install!
-    make
-    sudo cp runc /usr/local/sbin/runc-chromeos
-    sudo chmod +x /usr/local/sbin/runc-chromeos
-    sudo service docker restart
-    docker run hello-world
-popd
+# For now we have to install from this guide
+#   https://www.reddit.com/r/Crostini/comments/9jabhq/docker_now_working/
+sudo apt -y install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg2 \
+    btrfs-progs \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) nightly"
+sudo apt update
+sudo apt -y install docker-ce
+wget https://www.dropbox.com/s/332lj9d1zkp9t84/runc-chromeos?dl=1 -O /tmp/runc-chromeos
+sudo mv /tmp/runc-chromeos /usr/local/sbin/
+sudo chmod +x /usr/local/sbin/runc-chromeos
+wget https://www.dropbox.com/s/us4zhl2v6rx3l08/daemon.json?dl=1 -O /tmp/daemon.json
+sudo mv /tmp/daemon.json /etc/docker/
+sudo service docker restart
+docker run hello-world
 
 # END DOCKER
 ################################################################################
