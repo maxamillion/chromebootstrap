@@ -40,12 +40,14 @@ sudo apt -y install \
     tig \
     man-db \
     iputils-{arping,ping,tracepath} \
-    virt-manager
+    virt-manager \
+    firefox-esr # for science
 
 pip install --user q
 pip install --user pdbpp
 pip install --user ptpython
 pip install --user pipenv
+pip install --user molecule
 
 ################################################################################
 # BEGIN DOCKER
@@ -88,7 +90,7 @@ sudo chmod +x /usr/local/sbin/runc-chromeos
 wget https://www.dropbox.com/s/us4zhl2v6rx3l08/daemon.json?dl=1 -O /tmp/daemon.json
 sudo mv /tmp/daemon.json /etc/docker/
 sudo service docker restart
-docker run hello-world
+sudo docker run hello-world
 
 # END DOCKER
 ################################################################################
