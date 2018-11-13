@@ -56,22 +56,6 @@ pip install --user molecule
 ##
 ## Once docker goes stable with the fixes in, switch to using the official repo
 ## https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository
-#sudo apt -y install \
-#    apt-transport-https \
-#    ca-certificates \
-#    curl \
-#    gnupg2 \
-#    btrfs-progs \
-#    software-properties-common
-#curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-#sudo add-apt-repository \
-#    "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-#sudo apt update
-#sudo apt -y install docker-ce
-
-
-# For now we have to install from this guide
-#   https://www.reddit.com/r/Crostini/comments/9jabhq/docker_now_working/
 sudo apt -y install \
     apt-transport-https \
     ca-certificates \
@@ -84,13 +68,29 @@ sudo add-apt-repository \
     "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 sudo apt update
 sudo apt -y install docker-ce
-wget https://www.dropbox.com/s/332lj9d1zkp9t84/runc-chromeos?dl=1 -O /tmp/runc-chromeos
-sudo mv /tmp/runc-chromeos /usr/local/sbin/
-sudo chmod +x /usr/local/sbin/runc-chromeos
-wget https://www.dropbox.com/s/us4zhl2v6rx3l08/daemon.json?dl=1 -O /tmp/daemon.json
-sudo mv /tmp/daemon.json /etc/docker/
-sudo service docker restart
-sudo docker run hello-world
+
+
+# For now we have to install from this guide
+#   https://www.reddit.com/r/Crostini/comments/9jabhq/docker_now_working/
+#sudo apt -y install \
+#    apt-transport-https \
+#    ca-certificates \
+#    curl \
+#    gnupg2 \
+#    btrfs-progs \
+#    software-properties-common
+#curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+#sudo add-apt-repository \
+#    "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+#sudo apt update
+#sudo apt -y install docker-ce
+#wget https://www.dropbox.com/s/332lj9d1zkp9t84/runc-chromeos?dl=1 -O /tmp/runc-chromeos
+#sudo mv /tmp/runc-chromeos /usr/local/sbin/
+#sudo chmod +x /usr/local/sbin/runc-chromeos
+#wget https://www.dropbox.com/s/us4zhl2v6rx3l08/daemon.json?dl=1 -O /tmp/daemon.json
+#sudo mv /tmp/daemon.json /etc/docker/
+#sudo service docker restart
+#sudo docker run hello-world
 
 # END DOCKER
 ################################################################################
