@@ -92,7 +92,7 @@ pip install --user molecule
 #sudo add-apt-repository \
 #    "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 #sudo apt update
-#sudo apt install docker-ce
+#sudo apt install -y docker-ce
 #wget https://www.dropbox.com/s/332lj9d1zkp9t84/runc-chromeos?dl=1 -O /tmp/runc-chromeos
 #sudo mv /tmp/runc-chromeos /usr/local/bin/
 #sudo chmod +x /usr/local/bin/runc-chromeos
