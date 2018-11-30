@@ -41,6 +41,7 @@ sudo apt -y install \
     man-db \
     iputils-{arping,ping,tracepath} \
     virt-manager \
+    software-properties-common \
     firefox-esr # for science
 
 pip install --user q
@@ -50,58 +51,60 @@ pip install --user pipenv
 pip install --user molecule
 
 ################################################################################
-# BEGIN DOCKER
+# BEGIN PODMAN
 #
-# Setup docker, becuase $reasons
-
-# Docker syscall blacklist workaround for crostini because we can't have nice things
 #
-# crosh> vmc start termina
-# (termina) chronos@localhost ~ $ lxc profile unset default security.syscalls.blacklist
-# (termina) chronos@localhost ~ $ lxc profile apply penguin default
-# Profiles default applied to penguin
-# (termina) chronos@localhost ~ $ lxc restart penguin
+# https://github.com/containers/libpod/blob/master/docs/tutorials/podman_tutorial.md#install-podman-on-ubuntu
 
-##
-## Once docker goes stable with the fixes in, switch to using the official repo
-## https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository
-#sudo apt -y install \
-#    apt-transport-https \
-#    ca-certificates \
-#    curl \
-#    gnupg2 \
-#    btrfs-progs \
-#    software-properties-common
-#curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-#sudo add-apt-repository \
-#    "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-#sudo apt update
-#sudo apt -y install docker-ce
+sudo apt-add-repository 'deb http://ftp.debian.org/debian stretch-backports main'
+sudo apt update
+sudo apt -t stretch-backports golang # need golang 1.10+
+sudo apt install \
+    libdevmapper-dev \
+    libglib2.0-dev \
+    libgpgme11-dev \
+    libseccomp-dev \
+    go-md2man \
+    libprotobuf-dev \
+    libprotobuf-c0-dev \
+    libseccomp-dev \
+    python3-setuptools
+
+# Build/Install Common
+export GOPATH=~/go
+mkdir -p $GOPATH
+git clone https://github.com/kubernetes-sigs/cri-o $GOPATH/src/github.com/kubernetes-sigs/cri-o
+cd $GOPATH/src/github.com/kubernetes-sigs/cri-o
+mkdir bin
+make bin/conmon
+sudo install -D -m 755 bin/conmon /usr/libexec/podman/conmon
+
+# Config files
+sudo mkdir -p /etc/containers
+sudo curl https://raw.githubusercontent.com/projectatomic/registries/master/registries.fedora -o /etc/containers/registries.conf
+sudo curl https://raw.githubusercontent.com/containers/skopeo/master/default-policy.json -o /etc/containers/policy.json
+
+# CNI plugins
+git clone https://github.com/containernetworking/plugins.git $GOPATH/src/github.com/containernetworking/plugins
+cd $GOPATH/src/github.com/containernetworking/plugins
+./build_linux.sh
+sudo mkdir -p /usr/libexec/cni
+sudo cp bin/* /usr/libexec/cni
+
+# runc
+git clone https://github.com/opencontainers/runc.git $GOPATH/src/github.com/opencontainers/runc
+cd $GOPATH/src/github.com/opencontainers/runc
+make BUILDTAGS="seccomp"
+sudo cp runc /usr/bin/runc
+
+# podman
+git clone https://github.com/containers/libpod/ $GOPATH/src/github.com/containers/libpod
+cd $GOPATH/src/github.com/containers/libpod
+make
+sudo make install PREFIX=/usr
 
 
-# For now we have to install from this random reddit post
-#   https://www.reddit.com/r/Crostini/comments/9jabhq/docker_now_working/
-#sudo apt -y install \
-#    apt-transport-https \
-#    ca-certificates \
-#    curl \
-#    gnupg2 \
-#    btrfs-progs \
-#    software-properties-common
-#curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-#sudo add-apt-repository \
-#    "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-#sudo apt update
-#sudo apt install -y docker-ce
-#wget https://www.dropbox.com/s/332lj9d1zkp9t84/runc-chromeos?dl=1 -O /tmp/runc-chromeos
-#sudo mv /tmp/runc-chromeos /usr/local/bin/
-#sudo chmod +x /usr/local/bin/runc-chromeos
-#wget https://www.dropbox.com/s/camzt33ueudubc1/daemon.json?dl=1 -O /tmp/daemon.json
-#sudo mv /tmp/daemon.json /etc/docker/
-#sudo service docker restart
-#sudo docker run hello-world
-
-# END DOCKER
+# END PODMAN
 ################################################################################
 
 ################################################################################
