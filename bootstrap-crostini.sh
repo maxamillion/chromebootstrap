@@ -68,7 +68,8 @@ sudo apt install \
     libprotobuf-dev \
     libprotobuf-c0-dev \
     libseccomp-dev \
-    python3-setuptools
+    python3-setuptools \
+    uidmap
 
 # Build/Install Common
 export GOPATH=~/go

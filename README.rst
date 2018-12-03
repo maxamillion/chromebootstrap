@@ -21,11 +21,30 @@ development Chromebook
 <https://blog.lessonslearned.org/building-a-more-secure-development-chromebook/>`_
 which inspired me to finally pull the trigger.
 
-Scope
-=====
+Current Scope (Crostini)
+========================
 
-The scope of this currently is pretty minimal. It's at this time all about
-bootstrapping the `Termux <https://termux.com/>`_ setup.
+This is pretty simple, you just install "Linux" on your Chromebook via `Crostini
+<https://chromium.googlesource.com/chromiumos/docs/+/master/containers_and_vms.md>`_,
+then run the following.
+
+::
+
+    sudo apt install git
+    git clone https://github.com/maxamillion/chromebootstrap.git
+    cd chromebootstrap/
+    bash bootstrap-crostini.sh
+
+This will setup the command line the way I like it, it installs default things
+I like to use from the standard `debian <https://www.debian.org/>`_ repos, and
+will setup `podman <https://podman.io/>`_ in order to get rootless containers.
+
+Original Scope (Termux)
+=======================
+
+Originally this was all about bootstrapping the `Termux <https://termux.com/>`_
+setup because we did not have `Crostini
+<https://chromium.googlesource.com/chromiumos/docs/+/master/containers_and_vms.md>`_.
 
 I'm not going to discuss things like SSH or GPG Key management, a really solid
 approach to that is in Kenneth's blog post listed above and I suspect most
@@ -108,8 +127,8 @@ Now go ahead and run sshd
     termux-chroot
     sshd
 
-Secure Shell
-------------
+Chrome Secure Shell
+===================
 
 Install the `Secure Shell
 <https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo>`_
