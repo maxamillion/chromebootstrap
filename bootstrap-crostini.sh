@@ -42,6 +42,7 @@ sudo apt -y install \
     iputils-{arping,ping,tracepath} \
     virt-manager \
     software-properties-common \
+    mitmproxy \
     firefox-esr # for science
 
 pip install --user q
