@@ -28,6 +28,9 @@ sudo apt -y install \
     ruby \
     pry \
     golang \
+    autoconf \
+    make \
+    gcc \
     openssh-client \
     mosh \
     proot \
@@ -57,7 +60,26 @@ pip install --user molecule
 #
 # https://github.com/containers/libpod/blob/master/docs/tutorials/podman_tutorial.md#install-podman-on-ubuntu
 
-./build-podman.sh
+# FIXME: Have to build from source, currently this is in debian testing and sid
+#        but not yet in the version of debian crostini is using
+export GOPATH=~/go
+mkdir -p $GOPATH
+git clone https://github.com/rootless-containers/slirp4netns $GOPATH/src/github.com/rootless-containers/slirp4netns
+pushd $GOPATH/src/github.com/rootless-containers/slirp4netns
+    ./autogen.sh
+    ./configure --prefix=/usr
+    make
+    sudo make install
+popd
+
+# FIXME: This is a bit of a hack for now, hopefully this will land in debian
+#        repos later or Fedora will become available in crostini
+cat > /etc/apt/sources.list.d/podman.list <<EOF
+deb http://ppa.launchpad.net/projectatomic/ppa/ubuntu bionic main
+EOF
+sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 0x018ba5ad9df57a4448f0e6cf8becf1637ad8c79d
+sudo apt update
+sudo apt -y install podman
 
 # END PODMAN
 ################################################################################
@@ -70,7 +92,7 @@ curl -O https://prerelease.keybase.io/keybase_amd64.deb
 # from the next command, you can ignore it, as the
 # subsequent command corrects it
 sudo dpkg -i keybase_amd64.deb
-sudo apt-get install -f
+sudo apt-get install -f -y
 #run_keybase
 
 # END KEYBASE
