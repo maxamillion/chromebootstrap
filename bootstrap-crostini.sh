@@ -4,6 +4,7 @@ sudo apt update
 sudo apt -y full-upgrade
 sudo apt -y install \
     apt-file \
+    file \
     htop \
     tmux \
     tmuxinator \
@@ -46,6 +47,7 @@ sudo apt -y install \
     virt-manager \
     software-properties-common \
     mitmproxy \
+    pastebinit \
     firefox-esr # for science
 
 pip install --user q
