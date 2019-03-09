@@ -75,8 +75,8 @@ f_git_clone \
 # upstream code
 f_git_clone \
     ~/src/yum \
-    git://yum.baseurl.org/yum.git ~/src/yum
+    https://github.com/rpm-software-management/yum.git
 
 f_git_clone \
     ~/src/yum-utils \
-    git://yum.baseurl.org/yum-utils.git
+    https://github.com/rpm-software-management/yum-utils.git
