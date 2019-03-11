@@ -38,6 +38,7 @@ sudo apt -y install \
     strace \
     nmap \
     curl \
+    httpie \
     wget \
     krb5-user \
     git \
