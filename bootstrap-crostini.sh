@@ -37,6 +37,7 @@ sudo apt -y install \
     proot \
     strace \
     nmap \
+    dnsutils \
     curl \
     httpie \
     wget \
