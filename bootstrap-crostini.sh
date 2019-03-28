@@ -84,6 +84,7 @@ EOF
 sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 0x018ba5ad9df57a4448f0e6cf8becf1637ad8c79d
 sudo apt update
 sudo apt -y install podman
+sudo ln -s /usr/bin/podman /usr/bin/docker
 
 # END PODMAN
 ################################################################################
