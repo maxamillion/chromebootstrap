@@ -47,6 +47,7 @@ sudo apt -y install \
     man-db \
     iputils-{arping,ping,tracepath} \
     virt-manager \
+    ssh-askpass-gnome \
     software-properties-common \
     mitmproxy \
     pastebinit \
