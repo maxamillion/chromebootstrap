@@ -79,9 +79,10 @@ popd
 
 # FIXME: This is a bit of a hack for now, hopefully this will land in debian
 #        repos later or Fedora will become available in crostini
-cat > /etc/apt/sources.list.d/podman.list <<EOF
+sudo bash -c "cat > /etc/apt/sources.list.d/podman.list" <<EOF
 deb http://ppa.launchpad.net/projectatomic/ppa/ubuntu bionic main
 EOF
+
 sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 0x018ba5ad9df57a4448f0e6cf8becf1637ad8c79d
 sudo apt update
 sudo apt -y install podman
